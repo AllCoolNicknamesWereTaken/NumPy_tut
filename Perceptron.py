@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as p
 
 class Perception(object):
     def __init__(self, eta=0.01, n_iter=10):
@@ -14,7 +15,7 @@ class Perception(object):
             for xi, target in zip(X, y):
                 update = self.eta * (target - self.predict(xi))
                 self.w_[1:] += update * xi
-                self.w[0] += update
+                self.w_[0] += update
                 errors += int(update != 0.0)
             self.errors_.append(errors)
         return self
